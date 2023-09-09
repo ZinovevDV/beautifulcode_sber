@@ -1,0 +1,25 @@
+version: '3.9'
+
+networks:
+  bridge-net:
+    driver: bridge
+    name: bridge-net
+
+services:
+  beautifulcode-sber:
+    container_name: beautifulcode-sber
+    image: beautifulcode-sber
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      bridge-net:
+    ports:
+      - "8080:8080"
+    environment:
+      SERVICE_PORT: 8080

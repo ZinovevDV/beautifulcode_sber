@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: "It's beautifulcode, Sber!"
+server:
+  port: ${SERVICE_PORT:8080}
